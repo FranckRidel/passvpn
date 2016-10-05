@@ -1,0 +1,13 @@
+#!/bin/bash
+
+wget vpnbook.com/freevpn
+
+pass=`cat freevpn | grep Password | cut -d '<' -f 3 | cut -d '>' -f 2 | uniq`
+
+clear
+
+echo 'Password : ' $pass
+
+sudo openvpn $HOME/vpnbook/vpnbook-euro1-udp25000.ovpn
+
+rm freevpn
